@@ -1,6 +1,8 @@
-# Bicep Parser
+# Bicep Parser (WIP)
 
 A [Peggyjs](https://github.com/peggyjs/peggy) parser for [Azure Bicep](https://github.com/Azure/bicep). Converts bicep templates to an AST.
+
+The parser is currently quite rough around the edges, work very much still in progress.
 
 #### Example
 
