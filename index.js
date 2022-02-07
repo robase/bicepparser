@@ -13,7 +13,7 @@ const parser = peggy.generate(
 const results = [];
 
 fileIndex.forEach((file) => {
-  if (file.filePath.startsWith("000")) {
+  if (file.filePath.startsWith("000") || true) {
     const testContent = fs.readFileSync(`./examples/${file.filePath}`, {
       encoding: "utf-8",
     });
@@ -23,13 +23,10 @@ fileIndex.forEach((file) => {
       parser.parse(testContent);
     } catch (e) {
       passed = false;
-    //   error = e;
-    //     console.log(e.location);
-      //   exit();
     }
 
     results.push({ file: file.filePath, passed, error });
+
+    console.log(`| [${file.filePath}](/examples/${file.filePath}) | ${passed ? '🟢 passed' : '🔴 failed' } |`);
   }
 });
-
-console.log(results);
