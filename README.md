@@ -4,6 +4,11 @@ A [Peggyjs](https://github.com/peggyjs/peggy) parser for [Azure Bicep](https://g
 
 The parser is currently quite rough around the edges, work very much still in progress.
 
+### Run tests
+
+1. `npm i`
+2. `npm run test`
+
 #### Example
 
 <table>
