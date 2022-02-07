@@ -107,9 +107,10 @@ outputDecl = decorators:(decorator __)* "output" _ id:identifier _ dataType:Data
   }
 }
 
-identifier = id:([a-zA-Z_0-9]+) { return {
-  type: 'Identifier',
-  name: id.join('')
+identifier = id:([a-zA-Z_0-9]+) { 
+  return {
+    type: 'Identifier',
+    name: id.join('')
   }
 }
 
@@ -188,7 +189,7 @@ unaryExpression =
 memberExpression
   = head:primaryExpression
     tail:(
-    "[" property:primaryExpression "]" { return { type: 'IndexedProperty', property }}
+    "[" property:(primaryExpression) "]" { return { type: 'IndexedProperty', property }}
     /  "." property:identifier { return { type: 'DotIdentifierProperty', property }}
     /  "." property:functionCall { return { type: 'FunctionCallProperty', property }}
     /  ":" property:identifier { return { type: 'ColonProperty', property }}
@@ -215,13 +216,17 @@ interpString
   / str:stringComplete { 
       return str 
     }
+
 stringLeftPiece = "'" str:stringChar* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
 stringMiddlePiece = "}" str:stringChar* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
 stringRightPiece = "}" str:stringChar* "'" { return {type: 'TemplateElement', value: str.join(''), tail:true }}
 stringComplete = "'" str:stringChar* "'" { return { type: 'String', value: str.join('') } }
 
+multilineString = "'''" str:(stringChar / NL)* "'''" { return { type: 'MultilineString', value: str.join('') } }
+
 primaryExpression
-  = interpString
+  = multilineString
+  / interpString
   / array
   / object
   / functionCall

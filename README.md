@@ -92,16 +92,18 @@ output helloWorld string = '${hello} ${yourName}'
 
 Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree/main/docs/examples)
 
+`85/144` test files successfully parsed
+
 | Example File                                                                   | Parsed successfully |
 | :----------------------------------------------------------------------------- | :------------------ |
 | [000/01-hello-world/main.bicep](/examples/000/01-hello-world/main.bicep) | 🟢 passed |
 | [000/10-string-functions/main.bicep](/examples/000/10-string-functions/main.bicep) | 🟢 passed |
-| [000/11-multiline-strings/main.bicep](/examples/000/11-multiline-strings/main.bicep) | 🔴 failed |
+| [000/11-multiline-strings/main.bicep](/examples/000/11-multiline-strings/main.bicep) | 🟢 passed |
 | [000/20-array-loop/main.bicep](/examples/000/20-array-loop/main.bicep) | 🟢 passed |
 | [000/21-array-lookup/main.bicep](/examples/000/21-array-lookup/main.bicep) | 🟢 passed |
 | [000/22-array-lookup-complex/main.bicep](/examples/000/22-array-lookup-complex/main.bicep) | 🔴 failed |
 | [000/30-json-object-simple/main.bicep](/examples/000/30-json-object-simple/main.bicep) | 🔴 failed |
-| [000/31-json-object-complex/main.bicep](/examples/000/31-json-object-complex/main.bicep) | 🔴 failed |
+| [000/31-json-object-complex/main.bicep](/examples/000/31-json-object-complex/main.bicep) | 🟢 passed |
 | [101/1vm-2nics-2subnets-1vnet/main.bicep](/examples/101/1vm-2nics-2subnets-1vnet/main.bicep) | 🔴 failed |
 | [101/aadds-dual-region-replica-sets/main.bicep](/examples/101/aadds-dual-region-replica-sets/main.bicep) | 🟢 passed |
 | [101/aad-domainservices/main.bicep](/examples/101/aad-domainservices/main.bicep) | 🟢 passed |

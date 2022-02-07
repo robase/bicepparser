@@ -11,18 +11,22 @@ const parser = peggy.generate(
 );
 
 const results = [];
-
+let failures = 0
 fileIndex.forEach((file) => {
   if (file.filePath.startsWith("000") || true) {
+
     const testContent = fs.readFileSync(`./examples/${file.filePath}`, {
       encoding: "utf-8",
     });
+
     let passed = true;
     let error;
+
     try {
       parser.parse(testContent);
     } catch (e) {
       passed = false;
+      failures++
     }
 
     results.push({ file: file.filePath, passed, error });
@@ -30,3 +34,5 @@ fileIndex.forEach((file) => {
     console.log(`| [${file.filePath}](/examples/${file.filePath}) | ${passed ? '🟢 passed' : '🔴 failed' } |`);
   }
 });
+
+console.log(`${results.length - failures}/${results.length} files successfully parsed`);
