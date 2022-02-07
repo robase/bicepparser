@@ -114,7 +114,7 @@ identifier = id:([a-zA-Z_0-9]+) {
   }
 }
 
-ifCondition = "if" test:parenthesizedExpression object {
+ifCondition = "if" ___ test:parenthesizedExpression ___ object {
   return {
     type: 'IfCondition',
     test
@@ -203,7 +203,8 @@ memberExpression
       }, head);
     }
 
-stringChar "stringChar" = [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|]
+// FIXME
+stringChar "stringChar" = [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|\[\]?\$<>]
 
 interpString 
   = left:stringLeftPiece middle:( expression stringMiddlePiece )* expRight:expression right:stringRightPiece {
@@ -311,8 +312,7 @@ MultiLineCommentNoLineTerminator
   = "/*" (!("*/" / LineTerminator) stringChar)* "*/"
 
 SingleLineComment
-  = "//" comm:(!LineTerminator stringChar)* {
+  = "//" comm:(!LineTerminator (stringChar / "'"))* {
     return { value: extractList(comm, 1)}
   }
 
-//////////////////////////////////////////////////////
