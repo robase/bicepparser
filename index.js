@@ -11,28 +11,34 @@ const parser = peggy.generate(
 
 const results = [];
 let failures = 0;
-fileIndex.forEach((file) => {
-  const testContent = fs.readFileSync(`./examples/${file.filePath}`, {
-    encoding: "utf-8",
+
+fileIndex.forEach((mainFile) => {
+  const dirPath = mainFile.filePath.substring(0, mainFile.filePath.lastIndexOf("/") + 1);
+
+  fs.readdirSync(`./examples/${dirPath}`).forEach((fileName) => {
+    if (fileName.endsWith(".bicep")) {
+      const testContent = fs.readFileSync(`./examples/${dirPath}${fileName}`, {
+        encoding: "utf-8",
+      });
+
+      let passed = true;
+
+      try {
+        parser.parse(testContent);
+      } catch (e) {
+        passed = false;
+        failures++;
+      }
+
+      results.push({ file: `./examples/${dirPath}${fileName}`, passed });
+
+      console.log(
+        `| [${dirPath}${fileName}](./examples/${dirPath}${fileName}) | ${
+          passed ? "🟢 yes" : "🔴 failed"
+        } |`
+      );
+    }
   });
-
-  let passed = true;
-  let error;
-
-  try {
-    parser.parse(testContent);
-  } catch (e) {
-    passed = false;
-    failures++;
-  }
-
-  results.push({ file: file.filePath, passed, error });
-
-  console.log(
-    `| [${file.filePath}](/examples/${file.filePath}) | ${
-      passed ? "🟢 passed" : "🔴 failed"
-    } |`
-  );
 });
 
 console.log(
