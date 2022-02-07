@@ -1,0 +1,25 @@
+{
+  "name": "bicepparser",
+  "version": "0.0.1",
+  "description": "PEGjs parser for bicep",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robase/bicepparser.git"
+  },
+  "author": "robase",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robase/bicepparser/issues"
+  },
+  "homepage": "https://github.com/robase/bicepparser#readme",
+  "dependencies": {
+    "peggy": "^1.2.0"
+  }
+}
