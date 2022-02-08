@@ -103,7 +103,7 @@ output helloWorld string = '${hello} ${yourName}'
 
 Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree/main/docs/examples)
 
-`164/203` test files successfully parsed
+`170/203` test files successfully parsed
 
 | Example File                                                                   | Parsed successfully? |
 | :----------------------------------------------------------------------------- | :------------------ |
@@ -112,7 +112,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [000/11-multiline-strings/main.bicep](./examples/000/11-multiline-strings/main.bicep) | 🟢 pass |
 | [000/20-array-loop/main.bicep](./examples/000/20-array-loop/main.bicep) | 🟢 pass |
 | [000/21-array-lookup/main.bicep](./examples/000/21-array-lookup/main.bicep) | 🟢 pass |
-| [000/22-array-lookup-complex/main.bicep](./examples/000/22-array-lookup-complex/main.bicep) | 🔴 fail |
+| [000/22-array-lookup-complex/main.bicep](./examples/000/22-array-lookup-complex/main.bicep) | 🟢 pass |
 | [000/30-json-object-simple/main.bicep](./examples/000/30-json-object-simple/main.bicep) | 🟢 pass |
 | [000/31-json-object-complex/main.bicep](./examples/000/31-json-object-complex/main.bicep) | 🟢 pass |
 | [101/1vm-2nics-2subnets-1vnet/main.bicep](./examples/101/1vm-2nics-2subnets-1vnet/main.bicep) | 🟢 pass |
@@ -201,7 +201,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/aci-wordpress/main.bicep](./examples/201/aci-wordpress/main.bicep) | 🟢 pass |
 | [201/anchored-proximity-placement-group/linux-vm-as.bicep](./examples/201/anchored-proximity-placement-group/linux-vm-as.bicep) | 🟢 pass |
 | [201/anchored-proximity-placement-group/linux-vm-az.bicep](./examples/201/anchored-proximity-placement-group/linux-vm-az.bicep) | 🟢 pass |
-| [201/anchored-proximity-placement-group/main.bicep](./examples/201/anchored-proximity-placement-group/main.bicep) | 🔴 fail |
+| [201/anchored-proximity-placement-group/main.bicep](./examples/201/anchored-proximity-placement-group/main.bicep) | 🟢 pass |
 | [201/anchored-proximity-placement-group/network.bicep](./examples/201/anchored-proximity-placement-group/network.bicep) | 🟢 pass |
 | [201/anchored-proximity-placement-group/sub.bicep](./examples/201/anchored-proximity-placement-group/sub.bicep) | 🟢 pass |
 | [201/api-management-create-all-resources/main.bicep](./examples/201/api-management-create-all-resources/main.bicep) | 🟢 pass |
@@ -231,7 +231,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/policy-with-initiative-definition-and-assignment/main.bicep](./examples/201/policy-with-initiative-definition-and-assignment/main.bicep) | 🟢 pass |
 | [201/proximity-placement-with-multi-resource-groups/anchored-ppg.bicep](./examples/201/proximity-placement-with-multi-resource-groups/anchored-ppg.bicep) | 🟢 pass |
 | [201/proximity-placement-with-multi-resource-groups/linux-vm-as.bicep](./examples/201/proximity-placement-with-multi-resource-groups/linux-vm-as.bicep) | 🟢 pass |
-| [201/proximity-placement-with-multi-resource-groups/main.bicep](./examples/201/proximity-placement-with-multi-resource-groups/main.bicep) | 🔴 fail |
+| [201/proximity-placement-with-multi-resource-groups/main.bicep](./examples/201/proximity-placement-with-multi-resource-groups/main.bicep) | 🟢 pass |
 | [201/proximity-placement-with-multi-resource-groups/network.bicep](./examples/201/proximity-placement-with-multi-resource-groups/network.bicep) | 🟢 pass |
 | [201/redis-premium-cluster-diagnostics/main.bicep](./examples/201/redis-premium-cluster-diagnostics/main.bicep) | 🟢 pass |
 | [201/redis-premium-persistence/main.bicep](./examples/201/redis-premium-persistence/main.bicep) | 🟢 pass |
@@ -239,7 +239,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/servicebus-create-queue/main.bicep](./examples/201/servicebus-create-queue/main.bicep) | 🟢 pass |
 | [201/sql/main.bicep](./examples/201/sql/main.bicep) | 🟢 pass |
 | [201/traffic-manager-webapp/main.bicep](./examples/201/traffic-manager-webapp/main.bicep) | 🟢 pass |
-| [201/vm-copy-managed-disks/main.bicep](./examples/201/vm-copy-managed-disks/main.bicep) | 🔴 fail |
+| [201/vm-copy-managed-disks/main.bicep](./examples/201/vm-copy-managed-disks/main.bicep) | 🟢 pass |
 | [201/vm-domain-join/main.bicep](./examples/201/vm-domain-join/main.bicep) | 🔴 fail |
 | [201/vm-new-or-existing-conditions/main.bicep](./examples/201/vm-new-or-existing-conditions/main.bicep) | 🟢 pass |
 | [201/vm-push-certificate-windows/main.bicep](./examples/201/vm-push-certificate-windows/main.bicep) | 🟢 pass |
@@ -296,9 +296,9 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [301/nested-vms-in-virtual-network/main.bicep](./examples/301/nested-vms-in-virtual-network/main.bicep) | 🟢 pass |
 | [301/nested-vms-in-virtual-network/nic.bicep](./examples/301/nested-vms-in-virtual-network/nic.bicep) | 🔴 fail |
 | [301/nested-vms-in-virtual-network/udr.bicep](./examples/301/nested-vms-in-virtual-network/udr.bicep) | 🟢 pass |
-| [301/publish-api-to-apim-opendocs/main.bicep](./examples/301/publish-api-to-apim-opendocs/main.bicep) | 🔴 fail |
+| [301/publish-api-to-apim-opendocs/main.bicep](./examples/301/publish-api-to-apim-opendocs/main.bicep) | 🟢 pass |
 | [301/servicebus-namespace-vnet/main.bicep](./examples/301/servicebus-namespace-vnet/main.bicep) | 🟢 pass |
-| [301/web-app-managed-identity-sql-db/main.bicep](./examples/301/web-app-managed-identity-sql-db/main.bicep) | 🔴 fail |
+| [301/web-app-managed-identity-sql-db/main.bicep](./examples/301/web-app-managed-identity-sql-db/main.bicep) | 🟢 pass |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep) | 🟢 pass |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep) | 🟢 pass |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep) | 🟢 pass |
