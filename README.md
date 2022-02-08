@@ -4,6 +4,13 @@ A [Peggyjs](https://github.com/peggyjs/peggy) grammar parser for [Azure Bicep](h
 
 The grammar is currently quite rough around the edges, work very much still in progress.
 
+### TODO
+
+- Implement proper unicode ranges for string chars
+- Fix string indexed member expressions
+- Complete AST ts types
+- Handle in-built functions granularly
+
 ### Run tests
 
 1. `npm i`
@@ -20,7 +27,6 @@ The grammar is currently quite rough around the edges, work very much still in p
 <td>
 
 ```bicep
-//Sample hello world
 param yourName string
 var hello = 'Hello World! - Hi'
 output helloWorld string = '${hello} ${yourName}'

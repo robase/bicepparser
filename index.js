@@ -6,7 +6,7 @@ const fileIndex = JSON.parse(
 );
 
 const parser = peggy.generate(
-  fs.readFileSync("bicep.peggy", { encoding: "utf-8" })
+  fs.readFileSync("bicep.pegjs", { encoding: "utf-8" })
 );
 
 const results = [];
