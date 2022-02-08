@@ -189,7 +189,7 @@ unaryExpression =
 memberExpression
   = head:primaryExpression
     tail:(
-    "[" property:(primaryExpression) "]" { return { type: 'IndexedProperty', property }}
+    "[" property:(expression) "]" { return { type: 'IndexedProperty', property }}
     /  "." property:functionCall { return { type: 'FunctionCallProperty', property }}
     /  "." property:identifier { return { type: 'DotIdentifierProperty', property }}
     /  ":" property:identifier { return { type: 'ColonProperty', property }}
@@ -210,7 +210,7 @@ char "char"
 
 // [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|\[\]?\$<>]
 unescaped
-  = [a-zA-Z_ *\-,\.\{\}0-9\/@=;:~\!\(\)"\|\[\]?\$<>]
+  = [a-zA-Z_ *\-,\.\{\}0-9\/@=;:~\!\(\)"\|\[\]?\$<>+]
 
 escape
   = "\\"
