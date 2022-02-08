@@ -13,7 +13,10 @@ const results = [];
 let failures = 0;
 
 fileIndex.forEach((mainFile) => {
-  const dirPath = mainFile.filePath.substring(0, mainFile.filePath.lastIndexOf("/") + 1);
+  const dirPath = mainFile.filePath.substring(
+    0,
+    mainFile.filePath.lastIndexOf("/") + 1
+  );
 
   fs.readdirSync(`./examples/${dirPath}`).forEach((fileName) => {
     if (fileName.endsWith(".bicep")) {
@@ -32,11 +35,12 @@ fileIndex.forEach((mainFile) => {
 
       results.push({ file: `./examples/${dirPath}${fileName}`, passed });
 
-      console.log(
-        `| [${dirPath}${fileName}](./examples/${dirPath}${fileName}) | ${
-          passed ? "🟢 yes" : "🔴 failed"
-        } |`
-      );
+    //   if (!passed)
+        console.log(
+          `| [${dirPath}${fileName}](./examples/${dirPath}${fileName}) | ${
+            passed ? "🟢 yes" : "🔴 failed"
+          } |`
+        );
     }
   });
 });

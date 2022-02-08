@@ -190,8 +190,8 @@ memberExpression
   = head:primaryExpression
     tail:(
     "[" property:(primaryExpression) "]" { return { type: 'IndexedProperty', property }}
-    /  "." property:identifier { return { type: 'DotIdentifierProperty', property }}
     /  "." property:functionCall { return { type: 'FunctionCallProperty', property }}
+    /  "." property:identifier { return { type: 'DotIdentifierProperty', property }}
     /  ":" property:identifier { return { type: 'ColonProperty', property }}
   )*  {
       return tail.reduce((result, element) => {
@@ -204,7 +204,16 @@ memberExpression
     }
 
 // FIXME
-stringChar "stringChar" = [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|\[\]?\$<>]
+char "char" 
+  = unescaped 
+  / escape sequence:"'" { return sequence; }
+
+// [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|\[\]?\$<>]
+unescaped
+  = [a-zA-Z_ *\-,\.\{\}0-9\/@=;:~\!\(\)"\|\[\]?\$<>]
+
+escape
+  = "\\"
 
 interpString 
   = left:stringLeftPiece middle:( expression stringMiddlePiece )* expRight:expression right:stringRightPiece {
@@ -218,12 +227,12 @@ interpString
       return str 
     }
 
-stringLeftPiece = "'" str:stringChar* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
-stringMiddlePiece = "}" str:stringChar* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
-stringRightPiece = "}" str:stringChar* "'" { return {type: 'TemplateElement', value: str.join(''), tail:true }}
-stringComplete = "'" str:stringChar* "'" { return { type: 'String', value: str.join('') } }
+stringLeftPiece = "'" str:char* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
+stringMiddlePiece = "}" str:char* "${" { return {type: 'TemplateElement', value: str.join(''), tail:false }}
+stringRightPiece = "}" str:char* "'" { return {type: 'TemplateElement', value: str.join(''), tail:true }}
+stringComplete = "'" str:char* "'" { return { type: 'String', value: str.join('') } }
 
-multilineString = "'''" str:(stringChar / NL)* "'''" { return { type: 'MultilineString', value: str.join('') } }
+multilineString = "'''" str:(char / NL)* "'''" { return { type: 'MultilineString', value: str.join('') } }
 
 primaryExpression
   = multilineString
@@ -242,7 +251,7 @@ literalValue
   / "false" { return { type: 'Boolean', value: false, raw: 'false'}}
   / "null" { return { type: 'Null', value: null, raw: 'null'}}
 
-array = "[" ___  line:arrayLine? ___ "]" {
+array = "[" ___  line:arrayLine? NL* ___ "]" {
     return {
       type: 'ArrayExpression',
       elements: line
@@ -250,7 +259,6 @@ array = "[" ___  line:arrayLine? ___ "]" {
   }
 
 arrayLine = NL+ els:arrayItem+ { return [...els] }
-
 arrayItem = ___ exp:expression ___ NL+ { return exp }
 
 object = "{" __ props:( objectProperty NL+ )* __ "}" {
@@ -290,7 +298,7 @@ WhiteSpace "whitespace" = [ \t]
 // Separator, Space
 Zs = [\u0020\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]
 
-NL "NewLine" = [\n\r]+
+NL "NewLine" = ( Comment* [\n\r]+)
 
 LineTerminator = [\n\r\u2028\u2029]
 
@@ -304,15 +312,15 @@ Comment "comment"
   / SingleLineComment
 
 MultiLineComment
-  = "/*" comm:(!"*/" stringChar)* "*/" {
+  = "/*" comm:(!"*/" char)* "*/" {
     return { value: extractList(comm, 1)}
   }
 
 MultiLineCommentNoLineTerminator
-  = "/*" (!("*/" / LineTerminator) stringChar)* "*/"
+  = "/*" (!("*/" / LineTerminator) char)* "*/"
 
 SingleLineComment
-  = "//" comm:(!LineTerminator (stringChar / "'"))* {
+  = "//" comm:(!LineTerminator (char / "'"))* {
     return { value: extractList(comm, 1)}
   }
 

@@ -1,6 +1,6 @@
 # Bicep Parser (WIP)
 
-A [Peggyjs](https://github.com/peggyjs/peggy) parser for [Azure Bicep](https://github.com/Azure/bicep). Converts bicep templates to an AST.
+A [Peggyjs](https://github.com/peggyjs/peggy) grammar parser for [Azure Bicep](https://github.com/Azure/bicep). Converts bicep templates to an AST.
 
 The parser is currently quite rough around the edges, work very much still in progress.
 
@@ -97,7 +97,7 @@ output helloWorld string = '${hello} ${yourName}'
 
 Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree/main/docs/examples)
 
-`146/203` test files successfully parsed
+`164/203` test files successfully parsed
 
 | Example File                                                                   | Parsed successfully? |
 | :----------------------------------------------------------------------------- | :------------------ |
@@ -120,7 +120,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/api-management-modular/groups.bicep](./examples/101/api-management-modular/groups.bicep) | 🟢 yes |
 | [101/api-management-modular/main.bicep](./examples/101/api-management-modular/main.bicep) | 🟢 yes |
 | [101/api-management-modular/users.bicep](./examples/101/api-management-modular/users.bicep) | 🟢 yes |
-| [101/app-config/main.bicep](./examples/101/app-config/main.bicep) | 🔴 failed |
+| [101/app-config/main.bicep](./examples/101/app-config/main.bicep) | 🟢 yes |
 | [101/app-service-regional-vnet-integration/main.bicep](./examples/101/app-service-regional-vnet-integration/main.bicep) | 🟢 yes |
 | [101/application-gateway-v2-autoscale-create/main.bicep](./examples/101/application-gateway-v2-autoscale-create/main.bicep) | 🟢 yes |
 | [101/azure-automation-account/main.bicep](./examples/101/azure-automation-account/main.bicep) | 🟢 yes |
@@ -138,7 +138,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/container-registry/main.bicep](./examples/101/container-registry/main.bicep) | 🟢 yes |
 | [101/cosmosdb-free/main.bicep](./examples/101/cosmosdb-free/main.bicep) | 🟢 yes |
 | [101/cosmosdb-private-endpoint/main.bicep](./examples/101/cosmosdb-private-endpoint/main.bicep) | 🟢 yes |
-| [101/cosmosdb-webapp/main.bicep](./examples/101/cosmosdb-webapp/main.bicep) | 🔴 failed |
+| [101/cosmosdb-webapp/main.bicep](./examples/101/cosmosdb-webapp/main.bicep) | 🟢 yes |
 | [101/create-rg-lock-role-assignment/applylock.bicep](./examples/101/create-rg-lock-role-assignment/applylock.bicep) | 🟢 yes |
 | [101/create-rg-lock-role-assignment/main.bicep](./examples/101/create-rg-lock-role-assignment/main.bicep) | 🟢 yes |
 | [101/custom-role-definition-assignment/main.bicep](./examples/101/custom-role-definition-assignment/main.bicep) | 🟢 yes |
@@ -157,7 +157,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/front-door-basic/main.bicep](./examples/101/front-door-basic/main.bicep) | 🔴 failed |
 | [101/front-door-custom-domain/main.bicep](./examples/101/front-door-custom-domain/main.bicep) | 🔴 failed |
 | [101/front-door-redirect/main.bicep](./examples/101/front-door-redirect/main.bicep) | 🔴 failed |
-| [101/function-app-create/main.bicep](./examples/101/function-app-create/main.bicep) | 🟢 yes |
+| [101/function-app-create/main.bicep](./examples/101/function-app-create/main.bicep) | 🔴 failed |
 | [101/function-http-trigger/main.bicep](./examples/101/function-http-trigger/main.bicep) | 🔴 failed |
 | [101/function-premium-vnet-integration/main.bicep](./examples/101/function-premium-vnet-integration/main.bicep) | 🟢 yes |
 | [101/hdinsight-spark-linux/main.bicep](./examples/101/hdinsight-spark-linux/main.bicep) | 🔴 failed |
@@ -184,15 +184,15 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/vm-simple-windows/main.bicep](./examples/101/vm-simple-windows/main.bicep) | 🟢 yes |
 | [101/vnet-two-subnets/main.bicep](./examples/101/vnet-two-subnets/main.bicep) | 🟢 yes |
 | [101/web-app-linux/main.bicep](./examples/101/web-app-linux/main.bicep) | 🟢 yes |
-| [101/web-app-windows/main.bicep](./examples/101/web-app-windows/main.bicep) | 🔴 failed |
+| [101/web-app-windows/main.bicep](./examples/101/web-app-windows/main.bicep) | 🟢 yes |
 | [101/webapp-managed-mysql/main.bicep](./examples/101/webapp-managed-mysql/main.bicep) | 🟢 yes |
 | [101/webapp-privateendpoint-vnet-injection/main.bicep](./examples/101/webapp-privateendpoint-vnet-injection/main.bicep) | 🟢 yes |
-| [101/website-with-container/main.bicep](./examples/101/website-with-container/main.bicep) | 🔴 failed |
+| [101/website-with-container/main.bicep](./examples/101/website-with-container/main.bicep) | 🟢 yes |
 | [101/avd-backplane/main.bicep](./examples/101/avd-backplane/main.bicep) | 🟢 yes |
 | [201/1vm-2nics-2subnets-1vnet/main.bicep](./examples/201/1vm-2nics-2subnets-1vnet/main.bicep) | 🟢 yes |
 | [201/1vm-2nics-2subnets-1vnet/vm.bicep](./examples/201/1vm-2nics-2subnets-1vnet/vm.bicep) | 🟢 yes |
-| [201/aci-sftp-files/main.bicep](./examples/201/aci-sftp-files/main.bicep) | 🔴 failed |
-| [201/aci-wordpress/main.bicep](./examples/201/aci-wordpress/main.bicep) | 🔴 failed |
+| [201/aci-sftp-files/main.bicep](./examples/201/aci-sftp-files/main.bicep) | 🟢 yes |
+| [201/aci-wordpress/main.bicep](./examples/201/aci-wordpress/main.bicep) | 🟢 yes |
 | [201/anchored-proximity-placement-group/linux-vm-as.bicep](./examples/201/anchored-proximity-placement-group/linux-vm-as.bicep) | 🟢 yes |
 | [201/anchored-proximity-placement-group/linux-vm-az.bicep](./examples/201/anchored-proximity-placement-group/linux-vm-az.bicep) | 🟢 yes |
 | [201/anchored-proximity-placement-group/main.bicep](./examples/201/anchored-proximity-placement-group/main.bicep) | 🔴 failed |
@@ -201,7 +201,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/api-management-create-all-resources/main.bicep](./examples/201/api-management-create-all-resources/main.bicep) | 🟢 yes |
 | [201/asev2-ilb-with-web-app/main.bicep](./examples/201/asev2-ilb-with-web-app/main.bicep) | 🟢 yes |
 | [201/cdn-with-storage-account/main.bicep](./examples/201/cdn-with-storage-account/main.bicep) | 🟢 yes |
-| [201/cloud-shell-vnet/main.bicep](./examples/201/cloud-shell-vnet/main.bicep) | 🔴 failed |
+| [201/cloud-shell-vnet/main.bicep](./examples/201/cloud-shell-vnet/main.bicep) | 🟢 yes |
 | [201/create-and-enable-ddos-protection-plans/main.bicep](./examples/201/create-and-enable-ddos-protection-plans/main.bicep) | 🟢 yes |
 | [201/cyclecloud/cycleserver-vm.bicep](./examples/201/cyclecloud/cycleserver-vm.bicep) | 🟢 yes |
 | [201/cyclecloud/main.bicep](./examples/201/cyclecloud/main.bicep) | 🔴 failed |
@@ -211,24 +211,24 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/event-hub-and-consumer-group/main.bicep](./examples/201/event-hub-and-consumer-group/main.bicep) | 🟢 yes |
 | [201/firewall-with-ip-from-prefix/main.bicep](./examples/201/firewall-with-ip-from-prefix/main.bicep) | 🟢 yes |
 | [201/front-door-with-webapplication-firewall/main.bicep](./examples/201/front-door-with-webapplication-firewall/main.bicep) | 🔴 failed |
-| [201/iot-with-storage/main.bicep](./examples/201/iot-with-storage/main.bicep) | 🔴 failed |
+| [201/iot-with-storage/main.bicep](./examples/201/iot-with-storage/main.bicep) | 🟢 yes |
 | [201/key-vault-secret-create/main.bicep](./examples/201/key-vault-secret-create/main.bicep) | 🟢 yes |
 | [201/log-analytics-with-solutions-and-diagnostics/main.bicep](./examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep) | 🟢 yes |
-| [201/policy-definition-with-assignment/main.bicep](./examples/201/policy-definition-with-assignment/main.bicep) | 🔴 failed |
+| [201/policy-definition-with-assignment/main.bicep](./examples/201/policy-definition-with-assignment/main.bicep) | 🟢 yes |
 | [201/portal-dashboard-with-appinsights/main.bicep](./examples/201/portal-dashboard-with-appinsights/main.bicep) | 🔴 failed |
 | [201/private-aks-cluster/aks.bicep](./examples/201/private-aks-cluster/aks.bicep) | 🔴 failed |
 | [201/private-aks-cluster/bastion.bicep](./examples/201/private-aks-cluster/bastion.bicep) | 🟢 yes |
-| [201/private-aks-cluster/jumpbox.bicep](./examples/201/private-aks-cluster/jumpbox.bicep) | 🔴 failed |
+| [201/private-aks-cluster/jumpbox.bicep](./examples/201/private-aks-cluster/jumpbox.bicep) | 🟢 yes |
 | [201/private-aks-cluster/log-analytics.bicep](./examples/201/private-aks-cluster/log-analytics.bicep) | 🟢 yes |
 | [201/private-aks-cluster/main.bicep](./examples/201/private-aks-cluster/main.bicep) | 🟢 yes |
 | [201/private-aks-cluster/vnet.bicep](./examples/201/private-aks-cluster/vnet.bicep) | 🟢 yes |
-| [201/policy-with-initiative-definition-and-assignment/main.bicep](./examples/201/policy-with-initiative-definition-and-assignment/main.bicep) | 🔴 failed |
+| [201/policy-with-initiative-definition-and-assignment/main.bicep](./examples/201/policy-with-initiative-definition-and-assignment/main.bicep) | 🟢 yes |
 | [201/proximity-placement-with-multi-resource-groups/anchored-ppg.bicep](./examples/201/proximity-placement-with-multi-resource-groups/anchored-ppg.bicep) | 🟢 yes |
 | [201/proximity-placement-with-multi-resource-groups/linux-vm-as.bicep](./examples/201/proximity-placement-with-multi-resource-groups/linux-vm-as.bicep) | 🟢 yes |
 | [201/proximity-placement-with-multi-resource-groups/main.bicep](./examples/201/proximity-placement-with-multi-resource-groups/main.bicep) | 🔴 failed |
 | [201/proximity-placement-with-multi-resource-groups/network.bicep](./examples/201/proximity-placement-with-multi-resource-groups/network.bicep) | 🟢 yes |
 | [201/redis-premium-cluster-diagnostics/main.bicep](./examples/201/redis-premium-cluster-diagnostics/main.bicep) | 🟢 yes |
-| [201/redis-premium-persistence/main.bicep](./examples/201/redis-premium-persistence/main.bicep) | 🔴 failed |
+| [201/redis-premium-persistence/main.bicep](./examples/201/redis-premium-persistence/main.bicep) | 🟢 yes |
 | [201/redis-premium-persistence/prereqs.bicep](./examples/201/redis-premium-persistence/prereqs.bicep) | 🟢 yes |
 | [201/servicebus-create-queue/main.bicep](./examples/201/servicebus-create-queue/main.bicep) | 🟢 yes |
 | [201/sql/main.bicep](./examples/201/sql/main.bicep) | 🟢 yes |
@@ -236,7 +236,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/vm-copy-managed-disks/main.bicep](./examples/201/vm-copy-managed-disks/main.bicep) | 🔴 failed |
 | [201/vm-domain-join/main.bicep](./examples/201/vm-domain-join/main.bicep) | 🔴 failed |
 | [201/vm-new-or-existing-conditions/main.bicep](./examples/201/vm-new-or-existing-conditions/main.bicep) | 🟢 yes |
-| [201/vm-push-certificate-windows/main.bicep](./examples/201/vm-push-certificate-windows/main.bicep) | 🔴 failed |
+| [201/vm-push-certificate-windows/main.bicep](./examples/201/vm-push-certificate-windows/main.bicep) | 🟢 yes |
 | [201/vm-windows-with-custom-script-extension/main.bicep](./examples/201/vm-windows-with-custom-script-extension/main.bicep) | 🔴 failed |
 | [201/vmss-windows-autoscale/main.bicep](./examples/201/vmss-windows-autoscale/main.bicep) | 🟢 yes |
 | [201/existing-vnet-to-vnet-peering/main.bicep](./examples/201/existing-vnet-to-vnet-peering/main.bicep) | 🟢 yes |
@@ -244,13 +244,13 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/vnet-to-vnet-peering/main.bicep](./examples/201/vnet-to-vnet-peering/main.bicep) | 🟢 yes |
 | [201/vnet-with-subnet-and-user-defined-route/main.bicep](./examples/201/vnet-with-subnet-and-user-defined-route/main.bicep) | 🟢 yes |
 | [201/vwan-shared-services/main.bicep](./examples/201/vwan-shared-services/main.bicep) | 🟢 yes |
-| [201/web-app-loganalytics/main.bicep](./examples/201/web-app-loganalytics/main.bicep) | 🔴 failed |
+| [201/web-app-loganalytics/main.bicep](./examples/201/web-app-loganalytics/main.bicep) | 🟢 yes |
 | [201/web-app-asev2-create/main.bicep](./examples/201/web-app-asev2-create/main.bicep) | 🟢 yes |
 | [201/web-app-conditional-log/logging.bicep](./examples/201/web-app-conditional-log/logging.bicep) | 🟢 yes |
 | [201/web-app-conditional-log/main.bicep](./examples/201/web-app-conditional-log/main.bicep) | 🟢 yes |
-| [201/web-app-conditional-log/webapp.bicep](./examples/201/web-app-conditional-log/webapp.bicep) | 🔴 failed |
+| [201/web-app-conditional-log/webapp.bicep](./examples/201/web-app-conditional-log/webapp.bicep) | 🟢 yes |
 | [201/web-app-loganalytics-mod/app-insights.bicep](./examples/201/web-app-loganalytics-mod/app-insights.bicep) | 🟢 yes |
-| [201/web-app-loganalytics-mod/app-service-plan.bicep](./examples/201/web-app-loganalytics-mod/app-service-plan.bicep) | 🔴 failed |
+| [201/web-app-loganalytics-mod/app-service-plan.bicep](./examples/201/web-app-loganalytics-mod/app-service-plan.bicep) | 🟢 yes |
 | [201/web-app-loganalytics-mod/app-service.bicep](./examples/201/web-app-loganalytics-mod/app-service.bicep) | 🟢 yes |
 | [201/web-app-loganalytics-mod/log-analytics.bicep](./examples/201/web-app-loganalytics-mod/log-analytics.bicep) | 🟢 yes |
 | [201/web-app-loganalytics-mod/main.bicep](./examples/201/web-app-loganalytics-mod/main.bicep) | 🟢 yes |
@@ -267,7 +267,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/vm-windows10-with-nvidia-gpu-extension-and-condition/main.bicep](./examples/201/vm-windows10-with-nvidia-gpu-extension-and-condition/main.bicep) | 🟢 yes |
 | [201/shared-image-gallery-with-image-defintition-and-role-assignment/main.bicep](./examples/201/shared-image-gallery-with-image-defintition-and-role-assignment/main.bicep) | 🟢 yes |
 | [201/policy-azmonitor-agent-and-dcr-association/main.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/main.bicep) | 🟢 yes |
-| [201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep) | 🔴 failed |
+| [201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep) | 🟢 yes |
 | [201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep) | 🔴 failed |
 | [201/wvd-create-hostpool/main.bicep](./examples/201/wvd-create-hostpool/main.bicep) | 🔴 failed |
 | [201/budget-subscription-with-notifications/main.bicep](./examples/201/budget-subscription-with-notifications/main.bicep) | 🔴 failed |
@@ -295,9 +295,9 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [301/web-app-managed-identity-sql-db/main.bicep](./examples/301/web-app-managed-identity-sql-db/main.bicep) | 🔴 failed |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep) | 🟢 yes |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep) | 🟢 yes |
-| [301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep) | 🔴 failed |
+| [301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep) | 🟢 yes |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep) | 🔴 failed |
-| [301/deployment-script-dev-environment/containergroups.bicep](./examples/301/deployment-script-dev-environment/containergroups.bicep) | 🔴 failed |
+| [301/deployment-script-dev-environment/containergroups.bicep](./examples/301/deployment-script-dev-environment/containergroups.bicep) | 🟢 yes |
 | [301/deployment-script-dev-environment/main.bicep](./examples/301/deployment-script-dev-environment/main.bicep) | 🔴 failed |
 | [301/deployment-script-dev-environment/storage.bicep](./examples/301/deployment-script-dev-environment/storage.bicep) | 🟢 yes |
 | [301/sql-database-with-management/main.bicep](./examples/301/sql-database-with-management/main.bicep) | 🟢 yes |
