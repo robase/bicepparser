@@ -38,7 +38,7 @@ fileIndex.forEach((mainFile) => {
     //   if (!passed)
         console.log(
           `| [${dirPath}${fileName}](./examples/${dirPath}${fileName}) | ${
-            passed ? "🟢 yes" : "🔴 failed"
+            passed ? "🟢 pass" : "🔴 fail"
           } |`
         );
     }
