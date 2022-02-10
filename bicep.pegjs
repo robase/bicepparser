@@ -203,14 +203,21 @@ memberExpression
       }, head);
     }
 
-// FIXME
 char "char" 
   = unescaped 
-  / escape sequence:"'" { return sequence; }
+  / escape sequence:(
+    "'"
+    / "\\"
+    / "/"
+    / "b" { return "\b"; }
+    / "f" { return "\f"; }
+    / "n" { return "\n"; }
+    / "r" { return "\r"; }
+    / "t" { return "\t"; }
+  ) { return sequence; }
 
-// [a-zA-Z_ *\-,\.\{\}0-9/@=;:~\\!\(\)"\|\[\]?\$<>]
 unescaped
-  = [a-zA-Z_ *\-,\.\{\}0-9\/@=;:~\!\(\)"\|\[\]?\$<>+]
+  = [^\0-\x1F\x27\x5C]
 
 escape
   = "\\"
@@ -267,7 +274,7 @@ object = "{" __ props:( objectProperty NL+ )* __ "}" {
     properties: extractList(props,0)
   }
 }
-objectProperty = ___ key:( identifier / interpString ) ___ ":" ___ exp:expression ___ {
+objectProperty = __ key:( identifier / interpString ) ___ ":" ___ exp:expression ___ {
   return {
     key,
     value: exp
@@ -294,9 +301,6 @@ _ "mandatory whitespace" = ([ \t])+
 __ = (WhiteSpace / LineTerminatorSequence / Comment)*
 
 WhiteSpace "whitespace" = [ \t]
-
-// Separator, Space
-Zs = [\u0020\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]
 
 NL "NewLine" = ( Comment* [\n\r]+)
 

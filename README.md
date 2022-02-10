@@ -103,7 +103,7 @@ output helloWorld string = '${hello} ${yourName}'
 
 Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree/main/docs/examples)
 
-`170/203` test files successfully parsed
+`186/203` test files successfully parsed
 
 | Example File                                                                   | Parsed successfully? |
 | :----------------------------------------------------------------------------- | :------------------ |
@@ -155,22 +155,22 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/data-lake-store-encryption-adls/main.bicep](./examples/101/data-lake-store-encryption-adls/main.bicep) | 🟢 pass |
 | [101/databricks-all-in-one-template-for-vnet-injection/main.bicep](./examples/101/databricks-all-in-one-template-for-vnet-injection/main.bicep) | 🟢 pass |
 | [101/databricks-workspace/main.bicep](./examples/101/databricks-workspace/main.bicep) | 🟢 pass |
-| [101/deployment-script-no-auth/main.bicep](./examples/101/deployment-script-no-auth/main.bicep) | 🔴 fail |
-| [101/deployment-script-with-storage/main.bicep](./examples/101/deployment-script-with-storage/main.bicep) | 🔴 fail |
+| [101/deployment-script-no-auth/main.bicep](./examples/101/deployment-script-no-auth/main.bicep) | 🟢 pass |
+| [101/deployment-script-with-storage/main.bicep](./examples/101/deployment-script-with-storage/main.bicep) | 🟢 pass |
 | [101/event-grid-servicebus-queue/main.bicep](./examples/101/event-grid-servicebus-queue/main.bicep) | 🟢 pass |
 | [101/eventhub-namespace/main.bicep](./examples/101/eventhub-namespace/main.bicep) | 🟢 pass |
 | [101/expressroute-circuit-create/main.bicep](./examples/101/expressroute-circuit-create/main.bicep) | 🟢 pass |
-| [101/front-door-basic/main.bicep](./examples/101/front-door-basic/main.bicep) | 🔴 fail |
-| [101/front-door-custom-domain/main.bicep](./examples/101/front-door-custom-domain/main.bicep) | 🔴 fail |
-| [101/front-door-redirect/main.bicep](./examples/101/front-door-redirect/main.bicep) | 🔴 fail |
-| [101/function-app-create/main.bicep](./examples/101/function-app-create/main.bicep) | 🔴 fail |
+| [101/front-door-basic/main.bicep](./examples/101/front-door-basic/main.bicep) | 🟢 pass |
+| [101/front-door-custom-domain/main.bicep](./examples/101/front-door-custom-domain/main.bicep) | 🟢 pass |
+| [101/front-door-redirect/main.bicep](./examples/101/front-door-redirect/main.bicep) | 🟢 pass |
+| [101/function-app-create/main.bicep](./examples/101/function-app-create/main.bicep) | 🟢 pass |
 | [101/function-http-trigger/main.bicep](./examples/101/function-http-trigger/main.bicep) | 🔴 fail |
 | [101/function-premium-vnet-integration/main.bicep](./examples/101/function-premium-vnet-integration/main.bicep) | 🟢 pass |
-| [101/hdinsight-spark-linux/main.bicep](./examples/101/hdinsight-spark-linux/main.bicep) | 🔴 fail |
+| [101/hdinsight-spark-linux/main.bicep](./examples/101/hdinsight-spark-linux/main.bicep) | 🟢 pass |
 | [101/hub-and-spoke/main.bicep](./examples/101/hub-and-spoke/main.bicep) | 🟢 pass |
 | [101/key-vault-create/main.bicep](./examples/101/key-vault-create/main.bicep) | 🔴 fail |
 | [101/key-vault-secret-only/main.bicep](./examples/101/key-vault-secret-only/main.bicep) | 🟢 pass |
-| [101/logic-app-create/main.bicep](./examples/101/logic-app-create/main.bicep) | 🔴 fail |
+| [101/logic-app-create/main.bicep](./examples/101/logic-app-create/main.bicep) | 🟢 pass |
 | [101/media-services-create/main.bicep](./examples/101/media-services-create/main.bicep) | 🟢 pass |
 | [101/mg-policy/main.bicep](./examples/101/mg-policy/main.bicep) | 🟢 pass |
 | [101/monitor-action-groups/main.bicep](./examples/101/monitor-action-groups/main.bicep) | 🟢 pass |
@@ -184,7 +184,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [101/sqlmi-new-vnet/main.bicep](./examples/101/sqlmi-new-vnet/main.bicep) | 🟢 pass |
 | [101/storage-blob-container/main.bicep](./examples/101/storage-blob-container/main.bicep) | 🟢 pass |
 | [101/storage-static-website/main.bicep](./examples/101/storage-static-website/main.bicep) | 🔴 fail |
-| [101/templatespec-create/main.bicep](./examples/101/templatespec-create/main.bicep) | 🔴 fail |
+| [101/templatespec-create/main.bicep](./examples/101/templatespec-create/main.bicep) | 🟢 pass |
 | [101/template-spec-deploy/main.bicep](./examples/101/template-spec-deploy/main.bicep) | 🔴 fail |
 | [101/vm-simple-linux/main.bicep](./examples/101/vm-simple-linux/main.bicep) | 🟢 pass |
 | [101/vm-simple-windows/main.bicep](./examples/101/vm-simple-windows/main.bicep) | 🟢 pass |
@@ -216,13 +216,13 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/decrypt-running-windows-vm-without-aad/main.bicep](./examples/201/decrypt-running-windows-vm-without-aad/main.bicep) | 🟢 pass |
 | [201/event-hub-and-consumer-group/main.bicep](./examples/201/event-hub-and-consumer-group/main.bicep) | 🟢 pass |
 | [201/firewall-with-ip-from-prefix/main.bicep](./examples/201/firewall-with-ip-from-prefix/main.bicep) | 🟢 pass |
-| [201/front-door-with-webapplication-firewall/main.bicep](./examples/201/front-door-with-webapplication-firewall/main.bicep) | 🔴 fail |
+| [201/front-door-with-webapplication-firewall/main.bicep](./examples/201/front-door-with-webapplication-firewall/main.bicep) | 🟢 pass |
 | [201/iot-with-storage/main.bicep](./examples/201/iot-with-storage/main.bicep) | 🟢 pass |
 | [201/key-vault-secret-create/main.bicep](./examples/201/key-vault-secret-create/main.bicep) | 🟢 pass |
 | [201/log-analytics-with-solutions-and-diagnostics/main.bicep](./examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep) | 🟢 pass |
 | [201/policy-definition-with-assignment/main.bicep](./examples/201/policy-definition-with-assignment/main.bicep) | 🟢 pass |
-| [201/portal-dashboard-with-appinsights/main.bicep](./examples/201/portal-dashboard-with-appinsights/main.bicep) | 🔴 fail |
-| [201/private-aks-cluster/aks.bicep](./examples/201/private-aks-cluster/aks.bicep) | 🔴 fail |
+| [201/portal-dashboard-with-appinsights/main.bicep](./examples/201/portal-dashboard-with-appinsights/main.bicep) | 🟢 pass |
+| [201/private-aks-cluster/aks.bicep](./examples/201/private-aks-cluster/aks.bicep) | 🟢 pass |
 | [201/private-aks-cluster/bastion.bicep](./examples/201/private-aks-cluster/bastion.bicep) | 🟢 pass |
 | [201/private-aks-cluster/jumpbox.bicep](./examples/201/private-aks-cluster/jumpbox.bicep) | 🟢 pass |
 | [201/private-aks-cluster/log-analytics.bicep](./examples/201/private-aks-cluster/log-analytics.bicep) | 🟢 pass |
@@ -240,7 +240,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/sql/main.bicep](./examples/201/sql/main.bicep) | 🟢 pass |
 | [201/traffic-manager-webapp/main.bicep](./examples/201/traffic-manager-webapp/main.bicep) | 🟢 pass |
 | [201/vm-copy-managed-disks/main.bicep](./examples/201/vm-copy-managed-disks/main.bicep) | 🟢 pass |
-| [201/vm-domain-join/main.bicep](./examples/201/vm-domain-join/main.bicep) | 🔴 fail |
+| [201/vm-domain-join/main.bicep](./examples/201/vm-domain-join/main.bicep) | 🟢 pass |
 | [201/vm-new-or-existing-conditions/main.bicep](./examples/201/vm-new-or-existing-conditions/main.bicep) | 🟢 pass |
 | [201/vm-push-certificate-windows/main.bicep](./examples/201/vm-push-certificate-windows/main.bicep) | 🟢 pass |
 | [201/vm-windows-with-custom-script-extension/main.bicep](./examples/201/vm-windows-with-custom-script-extension/main.bicep) | 🔴 fail |
@@ -274,7 +274,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [201/shared-image-gallery-with-image-defintition-and-role-assignment/main.bicep](./examples/201/shared-image-gallery-with-image-defintition-and-role-assignment/main.bicep) | 🟢 pass |
 | [201/policy-azmonitor-agent-and-dcr-association/main.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/main.bicep) | 🟢 pass |
 | [201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyAssignment.bicep) | 🟢 pass |
-| [201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep) | 🔴 fail |
+| [201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep](./examples/201/policy-azmonitor-agent-and-dcr-association/policyDefinition.bicep) | 🟢 pass |
 | [201/wvd-create-hostpool/main.bicep](./examples/201/wvd-create-hostpool/main.bicep) | 🔴 fail |
 | [201/budget-subscription-with-notifications/main.bicep](./examples/201/budget-subscription-with-notifications/main.bicep) | 🔴 fail |
 | [301/expressroute-circuit-vnet-connection/main.bicep](./examples/301/expressroute-circuit-vnet-connection/main.bicep) | 🟢 pass |
@@ -294,7 +294,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [301/modules-vwan-to-vnet-s2s-with-fw/vwan.bicep](./examples/301/modules-vwan-to-vnet-s2s-with-fw/vwan.bicep) | 🟢 pass |
 | [301/modules-vwan-to-vnet-s2s-with-fw/vwanvpnsite.bicep](./examples/301/modules-vwan-to-vnet-s2s-with-fw/vwanvpnsite.bicep) | 🟢 pass |
 | [301/nested-vms-in-virtual-network/main.bicep](./examples/301/nested-vms-in-virtual-network/main.bicep) | 🟢 pass |
-| [301/nested-vms-in-virtual-network/nic.bicep](./examples/301/nested-vms-in-virtual-network/nic.bicep) | 🔴 fail |
+| [301/nested-vms-in-virtual-network/nic.bicep](./examples/301/nested-vms-in-virtual-network/nic.bicep) | 🟢 pass |
 | [301/nested-vms-in-virtual-network/udr.bicep](./examples/301/nested-vms-in-virtual-network/udr.bicep) | 🟢 pass |
 | [301/publish-api-to-apim-opendocs/main.bicep](./examples/301/publish-api-to-apim-opendocs/main.bicep) | 🟢 pass |
 | [301/servicebus-namespace-vnet/main.bicep](./examples/301/servicebus-namespace-vnet/main.bicep) | 🟢 pass |
@@ -302,7 +302,7 @@ Examples sourced from the [Azure Bicep repo](https://github.com/Azure/bicep/tree
 | [301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/actionGroup.bicep) | 🟢 pass |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/main.bicep) | 🟢 pass |
 | [301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyAssignment.bicep) | 🟢 pass |
-| [301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep) | 🔴 fail |
+| [301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep](./examples/301/deployifnotexists-policy-with-initiative-and-assignment/policyDefinition.bicep) | 🟢 pass |
 | [301/deployment-script-dev-environment/containergroups.bicep](./examples/301/deployment-script-dev-environment/containergroups.bicep) | 🟢 pass |
 | [301/deployment-script-dev-environment/main.bicep](./examples/301/deployment-script-dev-environment/main.bicep) | 🔴 fail |
 | [301/deployment-script-dev-environment/storage.bicep](./examples/301/deployment-script-dev-environment/storage.bicep) | 🟢 pass |
